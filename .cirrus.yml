@@ -8,4 +8,4 @@ run_test_task:
   clone_script:
     - echo SKIP CLONE
   install_amico_script:
-    - pip install dmri-amico --no-cache-dir --force-reinstall
+    - python3.11 -m pip install dmri-amico --no-cache-dir --force-reinstall
