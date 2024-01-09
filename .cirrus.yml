@@ -17,6 +17,8 @@ run_test_task:
     - export CC=/Users/admin/fsl/bin/clang
     - export CXX=/Users/admin/fsl/bin/clang++
   check_script:
+    - echo $CC
+    - echo $CXX
     - clang++ -v
     - ls /Users/admin/fsl/bin
   install_amico_script:
