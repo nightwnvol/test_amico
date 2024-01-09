@@ -14,8 +14,9 @@ run_test_task:
   post_install_script:
     - cat /Users/admin/.zprofile
     - source /Users/admin/.zprofile
+    - export CXX=/Users/admin/fsl/bin
   check_script:
-    - ls /Users/admin/fsl/bin
     - clang++ -v
+    - ls /Users/admin/fsl/bin
   install_amico_script:
     - python3.11 -m pip install dmri-amico --no-cache-dir --force-reinstall
