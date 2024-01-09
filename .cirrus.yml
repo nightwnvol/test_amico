@@ -3,23 +3,20 @@ run_test_task:
   alias: run_test
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-xcode:latest
-#  env:
-#    PATH: ${PATH}:/opt/homebrew/opt/python@3.11/bin
+  env:
+    CC: /Users/admin/fsl/clang
+    CXX: /Users/admin/fsl/clang++
   clone_script:
     - echo SKIP CLONE
   download_fsl_script:
     - curl "https://git.fmrib.ox.ac.uk/fsl/conda/installer/-/raw/main/fsl/installer/fslinstaller.py?ref_type=heads&inline=false" --output fslinstaller.py
   install_fsl_script:
     - python3.11 fslinstaller.py -d /Users/admin/fsl
-  post_install_script:
-    - cat /Users/admin/.zprofile
-    - source /Users/admin/.zprofile
-    - export CC=/Users/admin/fsl/bin/clang
-    - export CXX=/Users/admin/fsl/bin/clang++
   check_script:
-    - echo $CC
-    - echo $CXX
+    - echo "$CC"
+    - echo "$CXX"
     - clang++ -v
-    - ls /Users/admin/fsl/bin
+    - $CC -v
+    - $CXX -v
   install_amico_script:
     - python3.11 -m pip install dmri-amico --no-cache-dir --force-reinstall
