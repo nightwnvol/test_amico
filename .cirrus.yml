@@ -10,6 +10,6 @@ run_test_task:
   download_fsl_script:
     - curl "https://git.fmrib.ox.ac.uk/fsl/conda/installer/-/raw/main/fsl/installer/fslinstaller.py?ref_type=heads&inline=false" --output fslinstaller.py
   install_fsl_script:
-    - ls /Users
+    - python3.11 fslinstaller.py -d /Users/admin/fsl
   install_amico_script:
     - python3.11 -m pip install dmri-amico --no-cache-dir --force-reinstall
