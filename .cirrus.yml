@@ -4,8 +4,7 @@ run_test_task:
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-xcode:latest
   env:
-    CC: /Users/admin/fsl/clang
-    CXX: /Users/admin/fsl/clang++
+    PATH: /Users/admin/fsl/bin:${PATH}
   clone_script:
     - echo SKIP CLONE
   download_fsl_script:
@@ -13,10 +12,6 @@ run_test_task:
   install_fsl_script:
     - python3.11 fslinstaller.py -d /Users/admin/fsl
   check_script:
-    - echo "$CC"
-    - echo "$CXX"
     - clang++ -v
-    - $CC -v
-    - $CXX -v
   install_amico_script:
     - python3.11 -m pip install dmri-amico --no-cache-dir --force-reinstall
