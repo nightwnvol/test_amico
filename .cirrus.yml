@@ -3,8 +3,8 @@ run_test_task:
   alias: run_test
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-xcode:latest
-  #env:
-    #PATH: /Users/admin/fsl/bin:${PATH}
+  env:
+    PATH: ${PATH}:/Users/admin/fsl/bin
   clone_script:
     - echo SKIP CLONE
   download_fsl_script:
