@@ -14,7 +14,8 @@ run_test_task:
   post_install_script:
     - cat /Users/admin/.zprofile
     - source /Users/admin/.zprofile
-    - export CXX=/Users/admin/fsl/bin
+    - export CC=/Users/admin/fsl/bin/clang
+    - export CXX=/Users/admin/fsl/bin/clang++
   check_script:
     - clang++ -v
     - ls /Users/admin/fsl/bin
