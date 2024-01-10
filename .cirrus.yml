@@ -3,8 +3,8 @@ run_test_task:
   alias: run_test
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-xcode:latest
-  env:
-    PATH: ${PATH}:/Users/admin/fsl/bin
+  #env:
+    #PATH: ${PATH}:/Users/admin/fsl/bin
   clone_script:
     - echo SKIP CLONE
   download_fsl_script:
@@ -12,11 +12,11 @@ run_test_task:
   install_fsl_script:
     - python3.11 fslinstaller.py -d /Users/admin/fsl
   reload_script:
-    - . /Users/admin/.zprofile
+    - echo $PATH
+    - source /Users/admin/.zprofile
+    - echo $PATH
   check_script:
     - clang++ -v
-    - echo $PATH
-    - cat /Users/admin/.zprofile
     - ls -la /Users/admin/fsl
   install_amico_script:
     - python3.11 -m pip install dmri-amico --no-cache-dir --force-reinstall --verbose
