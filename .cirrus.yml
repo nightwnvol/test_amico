@@ -17,5 +17,6 @@ run_test_task:
     - clang++ -v
     - echo $PATH
     - cat /Users/admin/.zprofile
+    - ls -la /Users/admin/fsl
   install_amico_script:
     - python3.11 -m pip install dmri-amico --no-cache-dir --force-reinstall --verbose
